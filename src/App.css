@@ -220,3 +220,25 @@ button:hover {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* --- ADD THESE NEW STYLES TO THE BOTTOM OF YOUR FILE --- */
+
+/* Score Message Styles */
+.score-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.score-message.low {
+    color: #d50000; /* Red */
+}
+
+.score-message.mid {
+    color: #ffab00; /* Amber/Orange */
+}
+
+.score-message.high {
+    color: #00c853; /* Green */
+}

@@ -556,6 +556,7 @@ export const questionBank = [
             { answerText: 'Kurama', isCorrect: true },
             { answerText: 'Gyuki', isCorrect: false },
             { answerText: 'Matatabi', isCorrect: false },
+        ],
     },
     {
         questionText: 'What is "doomscrolling"?',

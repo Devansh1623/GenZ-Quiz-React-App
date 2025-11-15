@@ -463,7 +463,7 @@ export const questionBank = [
         questionText: 'In "League of Legends", what are "minions"?',
         answerOptions: [
             { answerText: 'Small, yellow characters from a movie', isCorrect: false },
-            { answerText:Small AI-controlled creatures that fight for each team', isCorrect: true },
+            { answerText: 'Small AI-controlled creatures that fight for each team', isCorrect: true },
             { answerText: 'The weakest players', isCorrect: false },
             { answerText: 'A type of in-game pet', isCorrect: false },
         ],

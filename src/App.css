@@ -1,3 +1,6 @@
+/* --- THIS IS THE ORIGINAL CSS --- */
+/* (You already have this) */
+
 /* General Body Styles */
 body {
     background-color: #121212; /* Dark background */
@@ -157,4 +160,63 @@ button:hover {
 
 .answer-section button:hover {
     background-color: #555555;
+}
+
+
+/* --- ADD THESE NEW STYLES TO THE BOTTOM OF YOUR FILE --- */
+
+/* Timer Style */
+.timer-section {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #bb86fc; /* Purple accent */
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* Answer Button Feedback Styles */
+
+/* Style for the correct answer (always green) */
+.answer-section button.correct {
+    background-color: #00c853; /* Green */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Style for a selected incorrect answer (red) */
+.answer-section button.incorrect {
+    background-color: #d50000; /* Red */
+    color: #ffffff;
+}
+
+/* Style for other non-selected, incorrect answers (faded) */
+.answer-section button.disabled {
+    background-color: #333;
+    opacity: 0.6;
+}
+
+/* Ensure disabled buttons (after answering) don't have a hover effect */
+.answer-section button:disabled:hover {
+    background-color: #333333; /* Default disabled color */
+    cursor: not-allowed;
+}
+
+/* Specifically override hover for correct/incorrect/disabled buttons */
+.answer-section button.correct:disabled:hover,
+.answer-section button.correct:hover {
+    background-color: #00c853;
+    cursor: not-allowed;
+}
+
+.answer-section button.incorrect:disabled:hover,
+.answer-section button.incorrect:hover {
+    background-color: #d50000;
+    cursor: not-allowed;
+}
+
+.answer-section button.disabled:disabled:hover,
+.answer-section button.disabled:hover {
+    background-color: #333;
+    opacity: 0.6;
+    cursor: not-allowed;
 }

@@ -87,6 +87,7 @@ export default function App() {
 
     // Called when an answer button is clicked
     const handleAnswerOptionClick = (isCorrect, answerOption) => {
+        if (answered) return; // Prevent multiple clicks
         setAnswered(true); // Stop the timer
         setSelectedAnswer(answerOption); // Store the selected answer for styling
 
@@ -135,7 +136,7 @@ export default function App() {
 
     // --- New Score Message Function ---
     const getScoreMessage = () => {
-        // User's 1-4 range (I'll include 0)
+        // User's 1-4 range (includes 0)
         if (score <= 4) {
             return <p className="score-message low">aura --</p>;
         }
@@ -143,7 +144,7 @@ export default function App() {
         if (score >= 5 && score <= 7) {
             return <p className="score-message mid">Decent... you're not a complete NPC.</p>;
         }
-        // User's 7-10 range (I'll interpret as 8-10)
+        // User's 8-10 range
         return <p className="score-message high">aura ++ You're the main character!</p>;
     };
 
@@ -169,11 +170,19 @@ export default function App() {
                 }
                 return (
                     <>
+                        {/* New Timer Bar. The 'key' resets the animation on each question */}
+                        <div className="timer-bar-container">
+                            <div
+                                key={currentQuestion}
+                                className="timer-bar"
+                                style={{ animationDuration: `${QUESTION_TIMER}s` }}
+                            ></div>
+                        </div>
                         <div className='question-section'>
                             <div className='question-count'>
                                 <span>Question {currentQuestion + 1}</span>/{questions.length}
                             </div>
-                            {/* New Timer Display */}
+                            {/* Text Timer Display */}
                             <div className='timer-section'>
                                 Time Left: {timer}s
                             </div>
@@ -215,7 +224,10 @@ export default function App() {
                 <p>Anime & Gaming Edition</p>
             </header>
             <main>
-                {renderContent()}
+                {/* This wrapper handles the fade animation between game states */}
+                <div key={gameState} className="content-wrapper">
+                    {renderContent()}
+                </div>
             </main>
         </div>
     );

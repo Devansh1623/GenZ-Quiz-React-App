@@ -133,6 +133,21 @@ export default function App() {
         return 'disabled';
     };
 
+    // --- New Score Message Function ---
+    const getScoreMessage = () => {
+        // User's 1-4 range (I'll include 0)
+        if (score <= 4) {
+            return <p className="score-message low">aura --</p>;
+        }
+        // User's 5-7 range
+        if (score >= 5 && score <= 7) {
+            return <p className="score-message mid">Decent... you're not a complete NPC.</p>;
+        }
+        // User's 7-10 range (I'll interpret as 8-10)
+        return <p className="score-message high">aura ++ You're the main character!</p>;
+    };
+
+
     // --- Render Functions ---
 
     // Renders the main content based on the current gameState
@@ -142,6 +157,8 @@ export default function App() {
                 return (
                     <div className='score-section'>
                         <h2>You scored {score} out of {questions.length}</h2>
+                        {/* This will display the new message */}
+                        {getScoreMessage()}
                         <button className='retry-button' onClick={handleStartQuiz}>Retry Quiz</button>
                     </div>
                 );
